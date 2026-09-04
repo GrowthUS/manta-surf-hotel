@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Triple Estándar — Manta Surf Hotel</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230a4d68'/%3E%3Ctext x='16' y='23' font-size='18' text-anchor='middle' fill='%23f2c14e' font-family='Georgia,serif'%3EM%3C/text%3E%3C/svg%3E">
+<meta name="description" content="Triple Estándar en Manta Surf Hotel: Ideal para familias o grupos de amigos. Espaciosa y luminosa, ofrece todas las comodidades para un descanso reparador de">
+<meta property="og:title" content="Triple Estándar — Manta Surf Hotel">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --deep:#0a4d68; --ocean:#1789a3; --aqua:#2fbfc9; --aqua-soft:#a9e6ea;
+    --coral:#f2825c; --sand:#f2c14e; --sand-soft:#f7ecd9;
+    --cream:#fdfbf6; --shell:#f3ece0; --ink:#0c2b36; --text:#31474d; --text-soft:#6d8288; --white:#fff;
+    --fd:'Fraunces',Georgia,serif; --fb:'Outfit',-apple-system,Arial,sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:var(--fb);background:var(--cream);color:var(--text);line-height:1.65;}
+  a{text-decoration:none;color:inherit;}
+  img{max-width:100%;display:block;}
+
+  /* NAV */
+  nav{position:fixed;top:0;left:0;right:0;z-index:1000;display:flex;align-items:center;justify-content:space-between;padding:20px 6%;transition:background .4s,padding .4s,box-shadow .4s;}
+  nav .logo{font-family:var(--fd);font-size:26px;font-weight:600;color:#fff;letter-spacing:.02em;line-height:1;}
+  nav .logo small{display:block;font-family:var(--fb);font-size:9.5px;letter-spacing:.28em;text-transform:uppercase;font-weight:400;opacity:.85;margin-top:3px;}
+  nav .links{display:flex;gap:26px;align-items:center;}
+  nav .links a{color:#fff;font-size:14px;font-weight:400;transition:opacity .2s;}
+  nav .links a:hover{opacity:.7;}
+  nav .btn-nav{background:var(--coral);color:#fff !important;padding:10px 22px;border-radius:40px;font-weight:500;}
+  nav .btn-nav:hover{background:#e06844;opacity:1 !important;}
+  nav.scrolled{background:var(--white);padding:13px 6%;box-shadow:0 6px 30px -16px rgba(10,43,54,.5);}
+  nav.scrolled .logo{color:var(--deep);}
+  nav.scrolled .links a{color:var(--ink);}
+  nav.scrolled .btn-nav{color:#fff !important;}
+  .burger{display:none;flex-direction:column;gap:5px;cursor:pointer;}
+  .burger span{width:24px;height:2px;background:#fff;transition:.3s;}
+  nav.scrolled .burger span{background:var(--ink);}
+
+  /* HERO */
+  .hero{min-height:100vh;display:flex;align-items:center;position:relative;overflow:hidden;
+    background:linear-gradient(160deg,rgba(10,77,104,.72),rgba(23,137,163,.55)),url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1600&q=80');
+    background-size:cover;background-position:center;}
+  .hero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:130px;background:linear-gradient(transparent,var(--cream));}
+  .hero-inner{max-width:1200px;margin:0 auto;padding:0 6%;width:100%;position:relative;z-index:2;}
+  .hero .kick{display:inline-block;background:rgba(255,255,255,.16);backdrop-filter:blur(6px);color:#fff;font-size:12.5px;letter-spacing:.16em;text-transform:uppercase;padding:8px 18px;border-radius:40px;margin-bottom:22px;border:1px solid rgba(255,255,255,.25);}
+  .hero h1{font-family:var(--fd);font-size:clamp(40px,7vw,80px);color:#fff;line-height:1.02;font-weight:600;margin-bottom:20px;max-width:800px;text-shadow:0 4px 30px rgba(0,0,0,.3);}
+  .hero h1 em{font-style:italic;color:var(--sand);}
+  .hero p{font-size:clamp(16px,2vw,20px);color:rgba(255,255,255,.94);font-weight:300;max-width:540px;margin-bottom:34px;text-shadow:0 2px 12px rgba(0,0,0,.3);}
+  .hero-btns{display:flex;gap:14px;flex-wrap:wrap;}
+  .btn{display:inline-flex;align-items:center;gap:8px;padding:16px 34px;border-radius:44px;font-weight:500;font-size:15px;transition:transform .25s,box-shadow .25s,background .25s;cursor:pointer;border:none;font-family:var(--fb);}
+  .btn-coral{background:var(--coral);color:#fff;box-shadow:0 14px 34px -12px rgba(242,130,92,.7);}
+  .btn-coral:hover{transform:translateY(-3px);box-shadow:0 20px 40px -12px rgba(242,130,92,.8);}
+  .btn-glass{background:rgba(255,255,255,.14);backdrop-filter:blur(8px);color:#fff;border:1.5px solid rgba(255,255,255,.5);}
+  .btn-glass:hover{background:rgba(255,255,255,.24);}
+  .hero-rating{position:absolute;right:6%;bottom:130px;z-index:2;background:rgba(255,255,255,.94);border-radius:18px;padding:18px 24px;text-align:center;box-shadow:0 20px 50px -20px rgba(10,43,54,.6);}
+  .hero-rating .score{font-family:var(--fd);font-size:38px;color:var(--deep);line-height:1;font-weight:600;}
+  .hero-rating .stars{color:var(--sand);font-size:14px;margin:4px 0;}
+  .hero-rating .txt{font-size:11px;color:var(--text-soft);}
+  @media(max-width:760px){.hero-rating{display:none;}}
+
+  /* SECCIONES */
+  section{padding:90px 6%;}
+  .wrap{max-width:1200px;margin:0 auto;}
+  .label{font-size:12.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--coral);margin-bottom:12px;font-weight:500;}
+  .stitle{font-family:var(--fd);font-size:clamp(28px,4.5vw,46px);color:var(--ink);line-height:1.1;margin-bottom:18px;font-weight:600;}
+  .sintro{font-size:16.5px;color:var(--text-soft);font-weight:300;max-width:620px;}
+  .center{text-align:center;}
+  .center .sintro{margin-left:auto;margin-right:auto;}
+
+  /* BARRA DE SERVICIOS RÁPIDOS */
+  .quick{background:var(--deep);padding:0;}
+  .quick-grid{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);}
+  .quick-item{padding:34px 20px;text-align:center;border-right:1px solid rgba(255,255,255,.1);}
+  .quick-item:last-child{border-right:none;}
+  .quick-item .ico{font-size:30px;margin-bottom:10px;}
+  .quick-item h4{color:#fff;font-size:15px;font-weight:500;margin-bottom:3px;}
+  .quick-item p{color:var(--aqua-soft);font-size:12.5px;font-weight:300;}
+  @media(max-width:760px){.quick-grid{grid-template-columns:repeat(2,1fr);}.quick-item:nth-child(2){border-right:none;}}
+
+  /* NOSOTROS */
+  .about-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:60px;align-items:center;}
+  .about-img{border-radius:22px;overflow:hidden;height:440px;background:linear-gradient(135deg,var(--aqua),var(--ocean));background-size:cover;background-position:center;box-shadow:0 30px 60px -30px rgba(10,43,54,.5);}
+  .about-txt h2{margin-bottom:20px;}
+  .about-txt p{margin-bottom:16px;font-weight:300;font-size:15.5px;}
+  .about-feats{display:flex;gap:26px;margin-top:26px;flex-wrap:wrap;}
+  .about-feat{}
+  .about-feat .n{font-family:var(--fd);font-size:32px;color:var(--coral);font-weight:600;}
+  .about-feat .t{font-size:13px;color:var(--text-soft);}
+  @media(max-width:860px){.about-grid{grid-template-columns:1fr;gap:34px;}.about-img{height:320px;}}
+
+  /* HABITACIONES */
+  .rooms{background:var(--shell);}
+  .rooms-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:28px;margin-top:44px;}
+  .room-card{background:#fff;border-radius:20px;overflow:hidden;box-shadow:0 20px 44px -30px rgba(10,43,54,.4);transition:transform .3s,box-shadow .3s;display:flex;flex-direction:column;}
+  .room-card:hover{transform:translateY(-8px);box-shadow:0 30px 56px -28px rgba(10,43,54,.5);}
+  .room-img{height:220px;background-size:cover;background-position:center;background-color:var(--aqua-soft);position:relative;}
+  .room-tag{position:absolute;top:14px;left:14px;background:var(--white);color:var(--deep);font-size:11px;font-weight:600;letter-spacing:.06em;padding:6px 14px;border-radius:30px;text-transform:uppercase;}
+  .room-body{padding:24px 24px 26px;flex:1;display:flex;flex-direction:column;}
+  .room-body h3{font-family:var(--fd);font-size:23px;color:var(--ink);margin-bottom:8px;font-weight:600;}
+  .room-body p{font-size:14px;color:var(--text-soft);font-weight:300;margin-bottom:16px;flex:1;}
+  .room-price{font-family:var(--fd);font-size:15px;color:var(--coral);font-style:italic;margin-bottom:16px;}
+  .room-price b{font-size:26px;font-style:normal;}
+  .room-btn{display:block;text-align:center;background:var(--deep);color:#fff;padding:13px;border-radius:40px;font-weight:500;font-size:14px;transition:background .25s;}
+  .room-btn:hover{background:var(--ocean);}
+
+  /* EXPERIENCIA / PLAYAS */
+  .exp-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:22px;margin-top:44px;}
+  .exp-card{border-radius:18px;overflow:hidden;height:300px;position:relative;display:flex;align-items:flex-end;background-size:cover;background-position:center;background-color:var(--ocean);}
+  .exp-card::after{content:'';position:absolute;inset:0;background:linear-gradient(transparent 40%,rgba(10,43,54,.85));}
+  .exp-card .exp-txt{position:relative;z-index:2;padding:24px;}
+  .exp-card h3{color:#fff;font-family:var(--fd);font-size:22px;font-weight:600;margin-bottom:4px;}
+  .exp-card p{color:rgba(255,255,255,.85);font-size:13px;font-weight:300;}
+
+  /* TESTIMONIOS */
+  .testi{background:var(--deep);}
+  .testi-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:22px;margin-top:44px;}
+  .testi-card{background:rgba(255,255,255,.06);border-radius:18px;padding:30px 26px;text-align:left;}
+  .testi-card .qstars{color:var(--sand);font-size:17px;margin-bottom:12px;}
+  .testi-card p{color:#fff;font-weight:300;font-size:15px;line-height:1.6;margin-bottom:16px;}
+  .testi-card .who{color:var(--aqua-soft);font-size:13px;}
+  .testi-note{text-align:center;color:var(--aqua-soft);font-size:12px;font-weight:300;margin-top:30px;font-style:italic;}
+
+  /* MAPA / UBICACIÓN */
+  .loc-head{text-align:center;margin-bottom:36px;}
+  .map-frame{width:100%;height:440px;border-radius:22px;overflow:hidden;box-shadow:0 24px 50px -30px rgba(10,43,54,.5);}
+  .map-frame iframe{width:100%;height:100%;border:0;display:block;}
+  .loc-info{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:20px;margin-top:34px;}
+  .loc-item{text-align:center;padding:20px;}
+  .loc-item .ico{font-size:26px;margin-bottom:8px;}
+  .loc-item h4{font-size:15px;color:var(--ink);margin-bottom:4px;}
+  .loc-item p{font-size:13px;color:var(--text-soft);font-weight:300;}
+
+  /* CTA RESERVA */
+  .cta{background:linear-gradient(150deg,var(--ocean),var(--deep));text-align:center;position:relative;overflow:hidden;}
+  .cta h2{font-family:var(--fd);font-size:clamp(30px,5vw,52px);color:#fff;font-weight:600;margin-bottom:16px;}
+  .cta p{color:rgba(255,255,255,.9);font-size:17px;font-weight:300;max-width:520px;margin:0 auto 32px;}
+  .cta .btn-coral{font-size:16px;padding:18px 44px;}
+  .cta-sub{color:var(--aqua-soft);font-size:13px;margin-top:20px;}
+
+  /* FOOTER */
+  footer{background:var(--ink);color:#fff;padding:60px 6% 30px;}
+  .foot-grid{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:40px;padding-bottom:34px;border-bottom:1px solid rgba(255,255,255,.12);}
+  .foot-brand .logo{font-family:var(--fd);font-size:26px;font-weight:600;margin-bottom:10px;}
+  .foot-brand p{color:rgba(255,255,255,.6);font-size:14px;font-weight:300;max-width:280px;}
+  .foot-col h4{font-size:14px;letter-spacing:.1em;text-transform:uppercase;margin-bottom:16px;color:var(--sand);}
+  .foot-col a,.foot-col p{display:block;color:rgba(255,255,255,.7);font-size:14px;font-weight:300;margin-bottom:10px;transition:color .2s;}
+  .foot-col a:hover{color:#fff;}
+  .foot-bottom{max-width:1200px;margin:0 auto;padding-top:24px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+  .foot-bottom p{color:rgba(255,255,255,.5);font-size:12.5px;font-weight:300;}
+  .foot-bottom a{color:var(--aqua);font-weight:400;}
+  @media(max-width:760px){.foot-grid{grid-template-columns:1fr;gap:28px;}}
+
+  /* WHATSAPP FLOTANTE */
+  .wa-float{position:fixed;bottom:24px;right:24px;width:60px;height:60px;background:#25d366;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 10px 30px -6px rgba(37,211,102,.6);z-index:900;transition:transform .3s;}
+  .wa-float:hover{transform:scale(1.1);}
+  .wa-float svg{width:34px;height:34px;fill:#fff;}
+
+  /* MENU MOVIL */
+  .mobile-menu{position:fixed;inset:0;background:var(--deep);z-index:1100;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:28px;transform:translateX(100%);transition:transform .4s;}
+  .mobile-menu.open{transform:translateX(0);}
+  .mobile-menu a{color:#fff;font-size:22px;font-family:var(--fd);}
+  .mobile-menu .close{position:absolute;top:24px;right:30px;font-size:34px;color:#fff;cursor:pointer;}
+  @media(max-width:860px){nav .links{display:none;}.burger{display:flex;}}
+
+  .reveal{transition:opacity .7s,transform .7s;}
+  .js-ready .reveal{opacity:0;transform:translateY(28px);}
+  .js-ready .reveal.in{opacity:1;transform:none;}
+</style>
+</head>
+<body>
+<nav id="nav">
+  <a href="index.html" class="logo">Manta Surf Hotel<small>Manta · Ecuador</small></a>
+  <div class="links">
+    <a href="index.html#nosotros">Nosotros</a>
+    <a href="habitaciones.html">Habitaciones</a>
+    <a href="index.html#experiencia">Playas</a>
+    <a href="index.html#ubicacion">Ubicación</a>
+    <a href="https://wa.me/593987991860?text=Hola%20Manta%20Surf%20Hotel,%20quisiera%20consultar%20disponibilidad" class="btn-nav" target="_blank">Reservar</a>
+  </div>
+  <div class="burger" id="burger"><span></span><span></span><span></span></div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <span class="close" id="closeMenu">&times;</span>
+  <a href="index.html#nosotros">Nosotros</a>
+  <a href="habitaciones.html">Habitaciones</a>
+  <a href="index.html#experiencia">Playas</a>
+  <a href="index.html#ubicacion">Ubicación</a>
+  <a href="https://wa.me/593987991860" target="_blank">Reservar por WhatsApp</a>
+</div>
+<div style="max-width:1200px;margin:0 auto;padding:110px 6% 0;font-size:13px;color:var(--text-soft);">
+  <a href="index.html" style="color:var(--text-soft);">Inicio</a> / <a href="habitaciones.html" style="color:var(--text-soft);">Habitaciones</a> / Triple Estándar
+</div>
+<section style="padding-top:30px;">
+  <div class="wrap" style="display:grid;grid-template-columns:1.1fr 1fr;gap:50px;align-items:start;">
+    <div class="reveal" style="border-radius:22px;overflow:hidden;height:480px;background:url('https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=1000&q=80') center/cover no-repeat, var(--aqua-soft), linear-gradient(135deg,#1789a3,#0a4d68);box-shadow:0 30px 60px -30px rgba(10,43,54,.5);position:sticky;top:100px;"></div>
+    <div class="reveal">
+      <div class="room-tag" style="position:static;display:inline-block;margin-bottom:14px;background:var(--coral);color:#fff;">Familiar</div>
+      <h1 style="font-family:var(--fd);font-size:clamp(30px,4.5vw,44px);color:var(--ink);font-weight:600;margin-bottom:10px;">Triple Estándar</h1>
+      <div style="font-family:var(--fd);font-size:22px;color:var(--coral);font-style:italic;margin-bottom:8px;">desde <b style="font-size:34px;font-style:normal;">$72</b> <span style="font-size:15px;color:var(--text-soft);">/ noche</span></div>
+      <p style="font-size:15.5px;color:var(--text);font-weight:300;margin:20px 0 26px;">Ideal para familias o grupos de amigos. Espaciosa y luminosa, ofrece todas las comodidades para un descanso reparador después de un día de playa.</p>
+      <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-bottom:28px;"><div style="background:var(--shell);border-radius:14px;padding:16px;text-align:center;"><div style="font-size:13px;color:var(--text-soft);">3 personas</div></div><div style="background:var(--shell);border-radius:14px;padding:16px;text-align:center;"><div style="font-size:13px;color:var(--text-soft);">Espaciosa</div></div><div style="background:var(--shell);border-radius:14px;padding:16px;text-align:center;"><div style="font-size:13px;color:var(--text-soft);">Luminosa</div></div><div style="background:var(--shell);border-radius:14px;padding:16px;text-align:center;"><div style="font-size:13px;color:var(--text-soft);">3 camas</div></div></div>
+      <h3 style="font-family:var(--fd);font-size:22px;color:var(--ink);margin-bottom:6px;font-weight:600;">Servicios incluidos</h3>
+      <div style="margin-bottom:30px;"><div style="display:flex;align-items:center;gap:10px;padding:11px 0;border-bottom:1px solid var(--shell);"><span style="color:var(--aqua);font-size:18px;">✓</span><span style="font-size:14.5px;color:var(--text);">WiFi gratis</span></div><div style="display:flex;align-items:center;gap:10px;padding:11px 0;border-bottom:1px solid var(--shell);"><span style="color:var(--aqua);font-size:18px;">✓</span><span style="font-size:14.5px;color:var(--text);">Aire acondicionado</span></div><div style="display:flex;align-items:center;gap:10px;padding:11px 0;border-bottom:1px solid var(--shell);"><span style="color:var(--aqua);font-size:18px;">✓</span><span style="font-size:14.5px;color:var(--text);">TV</span></div><div style="display:flex;align-items:center;gap:10px;padding:11px 0;border-bottom:1px solid var(--shell);"><span style="color:var(--aqua);font-size:18px;">✓</span><span style="font-size:14.5px;color:var(--text);">Baño privado</span></div><div style="display:flex;align-items:center;gap:10px;padding:11px 0;border-bottom:1px solid var(--shell);"><span style="color:var(--aqua);font-size:18px;">✓</span><span style="font-size:14.5px;color:var(--text);">Agua caliente</span></div><div style="display:flex;align-items:center;gap:10px;padding:11px 0;border-bottom:1px solid var(--shell);"><span style="color:var(--aqua);font-size:18px;">✓</span><span style="font-size:14.5px;color:var(--text);">Habitación amplia</span></div></div>
+      <a href="https://wa.me/593987991860?text=Hola%20Manta%20Surf%20Hotel,%20quisiera%20reservar%20la%20habitaci%C3%B3n%20Triple%20Estandar.%20%C2%BFTienen%20disponibilidad?" class="btn btn-coral" target="_blank" style="width:100%;justify-content:center;margin-bottom:12px;">Reservar por WhatsApp</a>
+      <p style="text-align:center;font-size:12.5px;color:var(--text-soft);font-weight:300;">Confirmamos disponibilidad y tarifa al momento · Recepción 24h</p>
+    </div>
+  </div>
+</section>
+<section class="rooms">
+  <div class="wrap center">
+    <div class="label">Más opciones</div>
+    <h2 class="stitle">Otras habitaciones</h2>
+    <div class="rooms-grid" style="text-align:left;margin-top:36px;"><a href="habitacion-doble-deluxe.html" class="room-card" style="text-decoration:none;">
+      <div class="room-img" style="background:url('https://images.unsplash.com/photo-1618773928121-c32242e63f39?w=1000&q=80') center/cover no-repeat, linear-gradient(135deg,#1789a3,#0a4d68);height:170px;"><span class="room-tag">Vista al mar</span></div>
+      <div class="room-body"><h3 style="font-size:20px;">Doble Deluxe con balcón</h3><div class="room-price">desde <b>$86</b></div></div>
+    </a><a href="habitacion-doble.html" class="room-card" style="text-decoration:none;">
+      <div class="room-img" style="background:url('https://images.unsplash.com/photo-1590490360182-c33d57733427?w=1000&q=80') center/cover no-repeat, linear-gradient(135deg,#1789a3,#0a4d68);height:170px;"><span class="room-tag">Popular</span></div>
+      <div class="room-body"><h3 style="font-size:20px;">Doble Estándar</h3><div class="room-price">desde <b>$61</b></div></div>
+    </a></div>
+  </div>
+</section>
+<footer>
+  <div class="foot-grid">
+    <div class="foot-brand">
+      <div class="logo">Manta Surf Hotel</div>
+      <p>Tu oasis costero en el corazón de Manta, a pasos de Playa Murciélago. Comodidad moderna y calidez costera.</p>
+    </div>
+    <div class="foot-col">
+      <h4>Explora</h4>
+      <a href="#nosotros">Nosotros</a>
+      <a href="habitaciones.html">Habitaciones</a>
+      <a href="#experiencia">Playas cercanas</a>
+      <a href="#ubicacion">Ubicación</a>
+    </div>
+    <div class="foot-col">
+      <h4>Contacto</h4>
+      <p>Avenida 11 y Calle 19<br>Manta 130204, Manabí</p>
+      <a href="https://wa.me/593987991860" target="_blank">WhatsApp: 0987991860</a>
+      <p>Recepción 24 horas</p>
+    </div>
+  </div>
+  <div class="foot-bottom">
+    <p>© 2026 Manta Surf Hotel · Manta, Ecuador</p>
+    <p>Sitio desarrollado por <a href="#">GrowthUS</a></p>
+  </div>
+</footer>
+<a href="https://wa.me/593987991860?text=Hola%20Manta%20Surf%20Hotel,%20tengo%20una%20consulta" class="wa-float" target="_blank" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.6 15l-1.3 4.7 4.8-1.3A10 10 0 1 0 12 2zm0 18a8 8 0 0 1-4-1.1l-.3-.2-2.8.8.8-2.8-.2-.3A8 8 0 1 1 12 20zm4.4-6c-.2-.1-1.4-.7-1.6-.8s-.4-.1-.5.1-.6.8-.8 1-.3.1-.5 0a6.5 6.5 0 0 1-1.9-1.2 7.3 7.3 0 0 1-1.4-1.7c-.1-.2 0-.4.1-.5l.4-.4.2-.4v-.4l-.8-1.8c-.2-.5-.4-.4-.5-.4h-.5a1 1 0 0 0-.7.3A2.8 2.8 0 0 0 6 9.3a4.9 4.9 0 0 0 1 2.6 11.3 11.3 0 0 0 4.3 3.8c.6.3 1.1.4 1.5.5a3.5 3.5 0 0 0 1.6.1 2.7 2.7 0 0 0 1.7-1.2 2.2 2.2 0 0 0 .2-1.2c-.1-.1-.2-.1-.4-.2z"/></svg>
+</a>
+<script>
+(function(){
+  document.body.classList.add('js-ready');
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    if(window.scrollY > 60) nav.classList.add('scrolled'); else nav.classList.remove('scrolled');
+  }, {passive:true});
+
+  const burger = document.getElementById('burger');
+  const mobileMenu = document.getElementById('mobileMenu');
+  const closeMenu = document.getElementById('closeMenu');
+  burger?.addEventListener('click', () => mobileMenu.classList.add('open'));
+  closeMenu?.addEventListener('click', () => mobileMenu.classList.remove('open'));
+  mobileMenu?.querySelectorAll('a').forEach(a => a.addEventListener('click', () => mobileMenu.classList.remove('open')));
+
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('in'); });
+  }, {threshold:0.12});
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+  // Respaldo: si algo falla, mostrar todo tras 2s
+  setTimeout(() => document.querySelectorAll('.reveal').forEach(el => el.classList.add('in')), 2000);
+})();
+</script>
+</body>
+</html>
